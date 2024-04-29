@@ -52,7 +52,7 @@ class AppDrawerWidget extends StatelessWidget {
                       height: 100,
                     ),
                     const Text(
-                      'Y&K BUILDCON',
+                      'JAY BUILDCON',
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 20,

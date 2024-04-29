@@ -1199,6 +1199,7 @@ class StaticMethod {
     return SpinKitFadingCircle(
       color: bluishClr,
       duration: Duration(seconds: 1),
+      // duration: Duration(seconds: 1),
       size: 20.0,
     );
   }

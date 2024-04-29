@@ -14,7 +14,7 @@ class Themes{
 
   static final light = ThemeData(
     primaryColor: primaryColor,
-    backgroundColor: Colors.white,
+    backgroundColor: Color.fromARGB(255, 245, 245, 245),
     primaryColorLight: Colors.white,
     primaryColorDark: Colors.black,
     brightness: Brightness.light,

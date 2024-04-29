@@ -101,12 +101,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
     //================== CONDITIONALLY PAGE NAVIGATION==========================
     Widget widgetContent = LoginWidget();
-    String appBarContent = 'Y&K BUILDCON';
+    String appBarContent = 'JAY BUILDCON';
     switch (myAppState(context).activeWidget) {
       case "PropertyListPage":
         widgetContent = const PropertyListPage();
-        appBarContent = 'Y&K BUILDCON';
-        _propertyListController.appBarContent.value= 'Y&K BUILDCON';
+        appBarContent = 'JAY BUILDCON';
+        _propertyListController.appBarContent.value= 'JAY BUILDCON';
        //  _mounted=true;
        // if(_mounted){
        //   _propertyListController.appBarContent.value= 'Y&K BUILDCON';

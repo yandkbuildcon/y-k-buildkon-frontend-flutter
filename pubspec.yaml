@@ -61,10 +61,10 @@ dependencies:
   flutter_spinkit:  
   flutter_staggered_animations: 
   intl:
-  permission_handler: 
+
+  permission_handler:
   contacts_service: 
   mailer:  
-
 
 
 dev_dependencies:

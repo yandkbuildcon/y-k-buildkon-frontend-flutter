@@ -94,7 +94,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   children: [
                     Image.asset('assets/images/ic_launcher.png'),
                     Text(
-                      'Y&K BUILCON',
+                      'JAY BUILDCON',
                       style: TextStyle(
                           fontSize: 16,
                           color: Theme.of(context).primaryColorDark,

@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'JAY BUILDCON',
       theme: Themes.light,
       darkTheme: Themes.dark,
       themeMode: ThemeServices().theme,

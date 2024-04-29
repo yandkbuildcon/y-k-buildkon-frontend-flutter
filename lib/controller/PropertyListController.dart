@@ -10,7 +10,7 @@ class PropertyListController extends GetxController{
     super.onReady();
   }
   
-  RxString appBarContent = 'Y&K BUILDCON'.obs;
+  RxString appBarContent = 'JAY BUILDCON'.obs;
   RxString secondBtmContent = 'Login'.obs;
   RxString userType = ''.obs;
   RxString token = ''.obs;

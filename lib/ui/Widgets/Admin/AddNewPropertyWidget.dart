@@ -151,7 +151,6 @@ class _AddNewPropertyWidgetState extends State<AddNewPropertyWidget> {
       }
     }
   }
-  
   @override
   void initState() {
     _mounted = true;
@@ -224,46 +223,48 @@ class _AddNewPropertyWidgetState extends State<AddNewPropertyWidget> {
                                         fontSize: MyConst.smallTextSize*fontSizeScaleFactor
                                     ),
                                   ),
-                                  const SizedBox(width: 20,),
-                                  Card(
-                                      color: Get.isDarkMode? Colors.white12:Theme.of(context).primaryColorLight,
-                                      elevation: 1,
-                                      child: Container(
-                                        height: dropDownCardHeight*0.9,
-                                        width: dropDownCardWidth,
-                                        margin: const EdgeInsets.symmetric(horizontal: 8),
-                                        child: DropdownButton<String>(
-                                          value: selectedName.length==0 ? projectList[0]['project_name']:selectedName,
-                                          alignment: Alignment.center,
-                                          elevation: 16,
-                                          underline: Container(),
-                                          onChanged: (value) {
-                                            // This is called when the user selects an item.
-                                            setState(() {
-                                              selectedName = value!;
-                                              selectedId= projectList.firstWhere((element) => element['project_name'] == value)['project_id'].toInt();
-                                              print(selectedId);
-                                              //print('selected property type is ${selectedPropertyType}');
-                                            });
-                                          },
-                                          ////style: TextStyle(overflow: TextOverflow.ellipsis, ),
-                                          items: projectList
-                                              .map<DropdownMenuItem<String>>(
-                                                  (dynamic project) {
-                                                return DropdownMenuItem<String>(
-                                                  value: project['project_name'],
-                                                  child: Text('${project['project_name']}',
-                                                      softWrap: true,
-                                                      textAlign: TextAlign.center,
-                                                      style: TextStyle(
-                                                          fontSize: smallBodyText,
-                                                          overflow: TextOverflow
-                                                              .ellipsis)),
-                                                );
-                                              }).toList(),
-                                        ),
-                                      )
-                                  ),
+                                    const SizedBox(width: 20,),
+                                    Expanded(
+                                      child:Card(
+                                          color: Get.isDarkMode? Colors.white12:Theme.of(context).primaryColorLight,
+                                          elevation: 1,
+                                          child: Container(
+                                            height: dropDownCardHeight*0.9,
+                                            width: dropDownCardWidth,
+                                            margin: const EdgeInsets.symmetric(horizontal: 8),
+                                            child: DropdownButton<String>(
+                                              value: selectedName.length==0 ? projectList[0]['project_name']:selectedName,
+                                              alignment: Alignment.center,
+                                              elevation: 16,
+                                              underline: Container(),
+                                              onChanged: (value) {
+                                                // This is called when the user selects an item.
+                                                setState(() {
+                                                  selectedName = value!;
+                                                  selectedId= projectList.firstWhere((element) => element['project_name'] == value)['project_id'].toInt();
+                                                  print(selectedId);
+                                                  //print('selected property type is ${selectedPropertyType}');
+                                                });
+                                              },
+                                              ////style: TextStyle(overflow: TextOverflow.ellipsis, ),
+                                              items: projectList
+                                                  .map<DropdownMenuItem<String>>(
+                                                      (dynamic project) {
+                                                    return DropdownMenuItem<String>(
+                                                      value: project['project_name'],
+                                                      child: Text('${project['project_name']}',
+                                                          softWrap: true,
+                                                          textAlign: TextAlign.center,
+                                                          style: TextStyle(
+                                                              fontSize: smallBodyText,
+                                                              overflow: TextOverflow
+                                                                  .ellipsis)),
+                                                    );
+                                                  }).toList(),
+                                            ),
+                                          )
+                                      ),
+                                    )
                                 ],
                               )
                                   : Container(),

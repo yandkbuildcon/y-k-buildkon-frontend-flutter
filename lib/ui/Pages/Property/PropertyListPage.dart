@@ -1275,34 +1275,44 @@ class _PropertyListPageState extends State<PropertyListPage> {
           //=====================================FILTER BY NAME TEXTFIELD
           Flexible(
             child: Card(
-              color: Get.isDarkMode ? darkGreyClr : context.theme
-                  .primaryColorLight,
-              //shadowColor: Colors.black,
-              elevation: 1,
-              child: TextField(
-                onChanged: (value) {
-                  selectedPropertyName = value;
-                  _hasNextPage = true;
-                  page = 1;
-                  //setState(() {
-                  _isFirstLoadRunning = false;
-                  _firstLoad(appState,plcon);
-                  //});
-                },
-                keyboardType: TextInputType.text,
-                style: TextStyle(
-                    fontSize: MyConst.mediumSmallTextSize,),
-                textAlignVertical: TextAlignVertical.center,
-                decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.only(bottom: 5),
-                  labelText: 'Filter By Name',
-                  labelStyle: TextStyle(fontSize: MyConst
-                      .smallTextSize,),
-                  border: InputBorder.none,
-                  prefixIcon: Icon(Icons.search,
-                    size: MyConst.deviceHeight(context) * 0.025,),
+              // color: Get.isDarkMode ? darkGreyClr : context.theme
+              //     .primaryColorLight,
+              color: Get.isDarkMode ? darkGreyClr : Colors.white,
+              shadowColor: Colors.black.withOpacity(0.2),
+              elevation: 0.5,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(50.0), // Circular border radius
+              ),
+              // shadowColor: Colors.grey.withOpacity(0.5), // Set a consistent shadow color
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50.0), // Circular border radius
                 ),
-                cursorOpacityAnimates: false,
+                    child: TextField(
+                      onChanged: (value) {
+                        selectedPropertyName = value;
+                        _hasNextPage = true;
+                        page = 1;
+                        //setState(() {
+                        _isFirstLoadRunning = false;
+                        _firstLoad(appState,plcon);
+                        //});
+                      },
+                      keyboardType: TextInputType.text,
+                      style: TextStyle(
+                          fontSize: MyConst.mediumSmallTextSize,),
+                      textAlignVertical: TextAlignVertical.center,
+                      decoration: InputDecoration(
+                        contentPadding: const EdgeInsets.only(bottom: 5),
+                        labelText: 'Filter By Name',
+                        labelStyle: TextStyle(fontSize: MyConst
+                            .smallTextSize,),
+                        border: InputBorder.none,
+                        prefixIcon: Icon(Icons.search,
+                          size: MyConst.deviceHeight(context) * 0.025,),
+                      ),
+                      cursorOpacityAnimates: false,
+                    ),
               ),
             ),
           ),
@@ -1321,7 +1331,7 @@ class _PropertyListPageState extends State<PropertyListPage> {
                             : Colors.white,
                         border: Border.all(
                             width: 1, color: Colors.grey),
-                        borderRadius: BorderRadius.circular(10)),
+                        borderRadius: BorderRadius.circular(100)),
                     child: IconButton(
                       icon: Image.asset(
                         'assets/Icons/filter.png',
@@ -1376,16 +1386,24 @@ class _PropertyListPageState extends State<PropertyListPage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Under The Project',
+          // Text('Under The Project',
+          //     style: titleStyle
+          // ),
+          Text('Buildcon Projects',
               style: titleStyle
           ),
           const Spacer(),
           Card(
               color: Get.isDarkMode ? Colors.white10 : Colors.white,
-              elevation: 1,
+              elevation: 0.5,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(50.0), // Circular border radius
+              ),
+
               child: Container(
-                height: 40,
-                margin: const EdgeInsets.symmetric(horizontal: 4),
+                height: 30,
+                // margin: const EdgeInsets.symmetric(horizontal: 4),
+                padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 0.0),
                 child: DropdownButton<String>(
                   value: selectedName.length == 0
                       ? projectList[0]['project_name']
