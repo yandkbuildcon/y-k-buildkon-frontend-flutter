@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
 import 'package:provider/provider.dart';
-import 'package:real_state/controller/MyProvider.dart';
-import 'package:real_state/config/ApiLinks.dart';
-import 'package:real_state/config/Constant.dart';
-import 'package:real_state/config/StaticMethod.dart';
-import 'package:real_state/services/ThemeService/theme.dart';
+import 'package:JAY_BUILDCON/controller/MyProvider.dart';
+import 'package:JAY_BUILDCON/config/ApiLinks.dart';
+import 'package:JAY_BUILDCON/config/Constant.dart';
+import 'package:JAY_BUILDCON/config/StaticMethod.dart';
+import 'package:JAY_BUILDCON/services/ThemeService/theme.dart';
 
 class LoginWidget extends StatefulWidget {
   const LoginWidget({Key? key}) : super(key: key);
@@ -18,6 +18,7 @@ class LoginWidget extends StatefulWidget {
 }
 
 class _LoginWidgetState extends State<LoginWidget> {
+  bool changeButton =false;
   bool _mounted = false;
   final _formKey1 = GlobalKey<FormState>();
   final _formKey2 = GlobalKey<FormState>();
@@ -249,17 +250,21 @@ class _LoginWidgetState extends State<LoginWidget> {
                   Column(
                     children: [
                       const SizedBox(
-                        height: 100,
+                        height: 20,
+                      ),
+                      Image.asset(
+                        'assets/images/ic_launcher.png',
+                        height: 180,
                       ),
                       //==============================LOGIN HEADING
                       Container(
                         width: double.infinity,
                         child: const Center(
                             child:Text(
-                              'Login Now',
+                              "India's #1 Housing Company",
                               style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,color: bluishClr
                               ),
                             )
                         ),
@@ -269,24 +274,51 @@ class _LoginWidgetState extends State<LoginWidget> {
                       ),
                        
                        //==============================FORM1 CONTAINER Gen Otp
-                      Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: Form(
-                            key: _formKey1,
-                            child: Column(
-                              children: [
-                                _emailTextField(),
-                                TextButton(
-                                    onPressed: (){
-                                      if (_formKey1.currentState!.validate()) {
-                                        _generateOtpForCustomer(context, appState);
-                                      }
-                                    },
-                                    child: Text('Generate Otp',style: TextStyle(color: bluishClr),)
-                                )
-                              ],
-                            ),
-                          )
+                      // Container(
+                      //     padding: const EdgeInsets.symmetric(horizontal: 20),
+                      //     child: Form(
+                      //       key: _formKey1,
+                      //       child: Column(
+                      //         children: [
+                      //           _emailTextField(),
+                      //           TextButton(
+                      //               onPressed: (){
+                      //                 if (_formKey1.currentState!.validate()) {
+                      //                   _generateOtpForCustomer(context, appState);
+                      //                 }
+                      //               },
+                      //               child: Text('Generate Otp',style: TextStyle(color: bluishClr),)
+                      //           )
+                      //         ],
+                      //       ),
+                      //     )
+                      // ),
+                      InkWell(
+                        onTap: ()async{setState(() {
+
+                        });
+
+                        if (_formKey2.currentState!.validate()) {
+                          changeButton=true;
+                          _submitOtpForCustomer(context, appState);
+
+                        }await Future.delayed(Duration(seconds: 1));
+                        },
+                        child: AnimatedContainer(
+                          duration: Duration(seconds: 1),
+                          width:changeButton?50 : 250,
+                          height: 50,
+                          alignment: Alignment.center,
+                          child: changeButton?Icon(Icons.done,color: Colors.white,):Text(
+                            "LOGIN",
+                            style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),
+                          ),
+                          decoration: BoxDecoration(
+                              color: Theme.of(context).primaryColor,
+                              // shape:changeButton?BoxShape.circle:BoxShape.rectangle,
+                              borderRadius: BorderRadius.circular(changeButton?50:8)
+                          ),
+                        ),
                       ),
                       const SizedBox(height: 15,),
 
@@ -324,7 +356,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     const Text(
-                                        'dont have an account ?'
+                                        "don't have an account ?"
                                     ),
                                     TextButton(
                                         onPressed: (){

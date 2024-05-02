@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:real_state/config/StaticMethod.dart';
+import 'package:JAY_BUILDCON/config/StaticMethod.dart';
 import 'package:flutter/material.dart';
-import 'package:real_state/models/PropertyListModel.dart';
+import 'package:JAY_BUILDCON/models/PropertyListModel.dart';
 
 class PropertyListController extends GetxController{
   @override

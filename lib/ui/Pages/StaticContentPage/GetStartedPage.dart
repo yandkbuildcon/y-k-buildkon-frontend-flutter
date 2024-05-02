@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:real_state/config/Constant.dart';
-import 'package:real_state/ui/Screens/HomeScreen.dart';
+import 'package:JAY_BUILDCON/config/Constant.dart';
+import 'package:JAY_BUILDCON/ui/Screens/HomeScreen.dart';
 class GetStartedPage extends StatelessWidget {
   const GetStartedPage({Key? key}) : super(key: key);
 

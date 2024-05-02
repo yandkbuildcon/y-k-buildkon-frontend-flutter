@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-import 'package:real_state/controller/MyProvider.dart';
-import 'package:real_state/config/ApiLinks.dart';
-import 'package:real_state/config/Constant.dart';
-import 'package:real_state/config/StaticMethod.dart';
-import 'package:real_state/services/ThemeService/theme.dart';
+import 'package:JAY_BUILDCON/controller/MyProvider.dart';
+import 'package:JAY_BUILDCON/config/ApiLinks.dart';
+import 'package:JAY_BUILDCON/config/Constant.dart';
+import 'package:JAY_BUILDCON/config/StaticMethod.dart';
+import 'package:JAY_BUILDCON/services/ThemeService/theme.dart';
 
 class AddNewPropertyWidget extends StatefulWidget {
   const AddNewPropertyWidget({Key? key}) : super(key: key);
@@ -18,7 +18,7 @@ class _AddNewPropertyWidgetState extends State<AddNewPropertyWidget> {
   final _formKey = GlobalKey<FormState>();
   bool _mounted = false;
   bool _isProjectLoading = false;
-  int? selectedId;
+  int selectedId = 1;
   String selectedName='';
   List<dynamic> projectList = [];
 
@@ -34,7 +34,7 @@ class _AddNewPropertyWidgetState extends State<AddNewPropertyWidget> {
 
     if (res.isNotEmpty) {
       if (res['success'] == true) {
-        //print('succes is true and result is ${res['result']}');
+        //print('success is true and result is ${res['result']}');
         projectList = res['result'];
         if(_mounted){
           setState(() {
@@ -140,7 +140,7 @@ class _AddNewPropertyWidgetState extends State<AddNewPropertyWidget> {
     );
     final res = await StaticMethod.insertProperty(appState.token, propertyData, url);
     if (res.isNotEmpty) {
-      //print(res);
+      // print(res);
       Navigator.pop(context);
       if (res['success'] == true) {
         StaticMethod.showDialogBar(res['message'], Colors.green);
@@ -150,7 +150,9 @@ class _AddNewPropertyWidgetState extends State<AddNewPropertyWidget> {
         StaticMethod.showDialogBar(res['message'], Colors.red);
       }
     }
+      // print(propertyData);
   }
+
   @override
   void initState() {
     _mounted = true;
@@ -173,7 +175,7 @@ class _AddNewPropertyWidgetState extends State<AddNewPropertyWidget> {
     final dropDownCardWidth = MyConst.deviceWidth(context) * 0.41;
     double smallBodyText = 14;
     return PopScope(
-      canPop: false,
+        canPop: false,
         onPopInvoked: (didPop) {
           appState.activeWidget = "ProfileWidget";
         },
@@ -223,48 +225,46 @@ class _AddNewPropertyWidgetState extends State<AddNewPropertyWidget> {
                                         fontSize: MyConst.smallTextSize*fontSizeScaleFactor
                                     ),
                                   ),
-                                    const SizedBox(width: 20,),
-                                    Expanded(
-                                      child:Card(
-                                          color: Get.isDarkMode? Colors.white12:Theme.of(context).primaryColorLight,
-                                          elevation: 1,
-                                          child: Container(
-                                            height: dropDownCardHeight*0.9,
-                                            width: dropDownCardWidth,
-                                            margin: const EdgeInsets.symmetric(horizontal: 8),
-                                            child: DropdownButton<String>(
-                                              value: selectedName.length==0 ? projectList[0]['project_name']:selectedName,
-                                              alignment: Alignment.center,
-                                              elevation: 16,
-                                              underline: Container(),
-                                              onChanged: (value) {
-                                                // This is called when the user selects an item.
-                                                setState(() {
-                                                  selectedName = value!;
-                                                  selectedId= projectList.firstWhere((element) => element['project_name'] == value)['project_id'].toInt();
-                                                  print(selectedId);
-                                                  //print('selected property type is ${selectedPropertyType}');
-                                                });
-                                              },
-                                              ////style: TextStyle(overflow: TextOverflow.ellipsis, ),
-                                              items: projectList
-                                                  .map<DropdownMenuItem<String>>(
-                                                      (dynamic project) {
-                                                    return DropdownMenuItem<String>(
-                                                      value: project['project_name'],
-                                                      child: Text('${project['project_name']}',
-                                                          softWrap: true,
-                                                          textAlign: TextAlign.center,
-                                                          style: TextStyle(
-                                                              fontSize: smallBodyText,
-                                                              overflow: TextOverflow
-                                                                  .ellipsis)),
-                                                    );
-                                                  }).toList(),
-                                            ),
-                                          )
-                                      ),
-                                    )
+                                  const SizedBox(width: 20,),
+                                  Card(
+                                      color: Get.isDarkMode? Colors.white12:Theme.of(context).primaryColorLight,
+                                      elevation: 1,
+                                      child: Container(
+                                        height: dropDownCardHeight*0.9,
+                                        width: dropDownCardWidth,
+                                        margin: const EdgeInsets.symmetric(horizontal: 8),
+                                        child: DropdownButton<String>(
+                                          value: selectedName.length==0 ? projectList[0]['project_name']:selectedName,
+                                          alignment: Alignment.center,
+                                          elevation: 16,
+                                          underline: Container(),
+                                          onChanged: (value) {
+                                            // This is called when the user selects an item.
+                                            setState(() {
+                                              selectedName = value!;
+                                              selectedId= projectList.firstWhere((element) => element['project_name'] == value)['project_id'].toInt();
+                                              print(selectedId);
+                                              //print('selected property type is ${selectedPropertyType}');
+                                            });
+                                          },
+                                          ////style: TextStyle(overflow: TextOverflow.ellipsis, ),
+                                          items: projectList
+                                              .map<DropdownMenuItem<String>>(
+                                                  (dynamic project) {
+                                                return DropdownMenuItem<String>(
+                                                  value: project['project_name'],
+                                                  child: Text('${project['project_name']}',
+                                                      softWrap: true,
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                          fontSize: smallBodyText,
+                                                          overflow: TextOverflow
+                                                              .ellipsis)),
+                                                );
+                                              }).toList(),
+                                        ),
+                                      )
+                                  ),
                                 ],
                               )
                                   : Container(),
@@ -717,16 +717,16 @@ class _AddNewPropertyWidgetState extends State<AddNewPropertyWidget> {
 
                             //=============================PROPERTY NAME TEXTFIELD
                             _textField(
-                                controller: _propertyNameController, 
-                                focusNode: _propertyNameFocusNode, 
-                                label: 'Property Name', 
+                                controller: _propertyNameController,
+                                focusNode: _propertyNameFocusNode,
+                                label: 'Property Name',
                                 inputType: TextInputType.text,
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return 'please enter valid input';
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return 'please enter valid input';
+                                  }
+                                  return null;
                                 }
-                                return null;
-                              }
                             ),
 
                             const SizedBox(
@@ -876,7 +876,7 @@ class _AddNewPropertyWidgetState extends State<AddNewPropertyWidget> {
                                   }
                                   return null;
                                 },
-                              maxline: 4
+                                maxline: 4
                             ),
                             const SizedBox(
                               height: 15,
@@ -1047,11 +1047,11 @@ class _AddNewPropertyWidgetState extends State<AddNewPropertyWidget> {
     required TextEditingController? controller,
     required FocusNode? focusNode,
     required String? label,
-    required TextInputType? inputType, 
+    required TextInputType? inputType,
     validator,
     maxline=1
-}){
-   return TextFormField(
+  }){
+    return TextFormField(
         focusNode: focusNode,
         controller: controller,
         keyboardType: inputType,
@@ -1061,8 +1061,8 @@ class _AddNewPropertyWidgetState extends State<AddNewPropertyWidget> {
             labelStyle: TextStyle(color: Get.isDarkMode?Colors.white70:Colors.black),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                width: 2,
-                color:bluishClr
+                  width: 2,
+                  color:bluishClr
               ),
               borderRadius: BorderRadius.all(
                 Radius.circular(10),
@@ -1078,7 +1078,6 @@ class _AddNewPropertyWidgetState extends State<AddNewPropertyWidget> {
               ),
             )),
         validator:validator
-        );
+    );
+  }
 }
-}
-

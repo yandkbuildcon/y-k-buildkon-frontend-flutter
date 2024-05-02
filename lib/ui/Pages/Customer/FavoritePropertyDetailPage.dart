@@ -3,19 +3,19 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 
-import 'package:real_state/controller/MyProvider.dart';
+import 'package:JAY_BUILDCON/controller/MyProvider.dart';
 
 
-import 'package:real_state/config/ApiLinks.dart';
-import 'package:real_state/config/Constant.dart';
-import 'package:real_state/config/StaticMethod.dart';
-import 'package:real_state/services/ThemeService/theme.dart';
-import 'package:real_state/ui/Pages/ImagePickerPage.dart';
-import 'package:real_state/ui/Pages/Offer/AddOfferPage.dart';
-import 'package:real_state/ui/Pages/Property/ImageSlider.dart';
-import 'package:real_state/ui/Pages/StaticContentPage/AdminContactPage.dart';
+import 'package:JAY_BUILDCON/config/ApiLinks.dart';
+import 'package:JAY_BUILDCON/config/Constant.dart';
+import 'package:JAY_BUILDCON/config/StaticMethod.dart';
+import 'package:JAY_BUILDCON/services/ThemeService/theme.dart';
+import 'package:JAY_BUILDCON/ui/Pages/ImagePickerPage.dart';
+import 'package:JAY_BUILDCON/ui/Pages/Offer/AddOfferPage.dart';
+import 'package:JAY_BUILDCON/ui/Pages/Property/ImageSlider.dart';
+import 'package:JAY_BUILDCON/ui/Pages/StaticContentPage/AdminContactPage.dart';
 
-import 'package:real_state/ui/Widgets/Other/RatingDisplayWidgetTwo.dart';
+import 'package:JAY_BUILDCON/ui/Widgets/Other/RatingDisplayWidgetTwo.dart';
 
 class FavoritePropertyDetailPage extends StatefulWidget {
   const FavoritePropertyDetailPage({Key? key}) : super(key: key);

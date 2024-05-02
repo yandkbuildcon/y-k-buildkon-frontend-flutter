@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:real_state/config/Constant.dart';
-import 'package:real_state/ui/Pages/StaticContentPage/IntroductionPageTwo.dart';
+import 'package:JAY_BUILDCON/config/Constant.dart';
+import 'package:JAY_BUILDCON/ui/Pages/StaticContentPage/IntroductionPageTwo.dart';
 class IntroductionPageOne extends StatelessWidget {
   const IntroductionPageOne({Key? key}) : super(key: key);
 

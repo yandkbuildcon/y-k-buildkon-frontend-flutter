@@ -1,4 +1,4 @@
-name: real_state
+name: JAY_BUILDCON
 description: A new Flutter project. based on real state business
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -95,6 +95,7 @@ flutter:
     - assets/images/map.jpg
     - assets/images/ic_launcher.png
     - assets/images/home.jpg
+    - assets/images/splash_screen.jpg
     - assets/Icons/filter.png
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,19 +1,19 @@
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
-import 'package:real_state/controller/PropertyListController.dart';
-import 'package:real_state/models/PropertyListModel.dart';
-import 'package:real_state/services/ThemeService/theme.dart';
-import 'package:real_state/ui/Pages/Error/SpacificErrorPage.dart';
-import 'package:real_state/ui/Pages/Offer/OfferSlider.dart';
-import 'package:real_state/ui/Widgets/Other/RatingDisplayWidgetTwo.dart';
+import 'package:JAY_BUILDCON/controller/PropertyListController.dart';
+import 'package:JAY_BUILDCON/models/PropertyListModel.dart';
+import 'package:JAY_BUILDCON/services/ThemeService/theme.dart';
+import 'package:JAY_BUILDCON/ui/Pages/Error/SpacificErrorPage.dart';
+import 'package:JAY_BUILDCON/ui/Pages/Offer/OfferSlider.dart';
+import 'package:JAY_BUILDCON/ui/Widgets/Other/RatingDisplayWidgetTwo.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:real_state/controller/MyProvider.dart';
-import 'package:real_state/config/ApiLinks.dart';
-import 'package:real_state/config/Constant.dart';
-import 'package:real_state/config/StaticMethod.dart';
+import 'package:JAY_BUILDCON/controller/MyProvider.dart';
+import 'package:JAY_BUILDCON/config/ApiLinks.dart';
+import 'package:JAY_BUILDCON/config/Constant.dart';
+import 'package:JAY_BUILDCON/config/StaticMethod.dart';
 
 class PropertyListPage extends StatefulWidget {
   const PropertyListPage({Key? key}) : super(key: key);
@@ -1517,13 +1517,14 @@ class _PropertyListPageState extends State<PropertyListPage> {
                                   .of(context)
                                   .size
                                   .height * 0.010,
+                              vertical: 8,
                             ),
                             child: Card(
                               color: Get.isDarkMode ? darkGreyClr : Colors
                                   .white,
                               shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              elevation: 0.5,
+                                  borderRadius: BorderRadius.circular(15)),
+                              elevation: 8,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.center,

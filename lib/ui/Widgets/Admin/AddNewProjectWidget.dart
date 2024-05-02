@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-import 'package:real_state/controller/MyProvider.dart';
-import 'package:real_state/config/ApiLinks.dart';
-import 'package:real_state/config/Constant.dart';
-import 'package:real_state/config/StaticMethod.dart';
-import 'package:real_state/services/ThemeService/theme.dart';
+import 'package:JAY_BUILDCON/controller/MyProvider.dart';
+import 'package:JAY_BUILDCON/config/ApiLinks.dart';
+import 'package:JAY_BUILDCON/config/Constant.dart';
+import 'package:JAY_BUILDCON/config/StaticMethod.dart';
+import 'package:JAY_BUILDCON/services/ThemeService/theme.dart';
 
 
 class AddNewProjectWidget extends StatefulWidget {
@@ -94,7 +94,7 @@ class _AddNewProjectWidgetState extends State<AddNewProjectWidget> {
                     width: double.infinity,
                     child: const Center(
                         child: Text(
-                          'New Prject',
+                          'New Project',
                           style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
                         )),
                   ),

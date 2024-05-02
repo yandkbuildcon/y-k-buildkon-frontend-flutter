@@ -2,10 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:real_state/controller/MyProvider.dart';
+import 'package:JAY_BUILDCON/controller/MyProvider.dart';
 import 'package:carousel_indicator/carousel_indicator.dart';
-import 'package:real_state/config/ApiLinks.dart';
-import 'package:real_state/config/Constant.dart';
+import 'package:JAY_BUILDCON/config/ApiLinks.dart';
+import 'package:JAY_BUILDCON/config/Constant.dart';
 
 class OfferSlider extends StatefulWidget {
   const OfferSlider({Key? key}) : super(key: key);

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:real_state/config/Constant.dart';
+import 'package:JAY_BUILDCON/config/Constant.dart';
 
 class RatingDisplayWidgetTwo extends StatelessWidget {
   final double rating;
