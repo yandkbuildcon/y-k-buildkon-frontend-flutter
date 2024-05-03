@@ -64,7 +64,7 @@ class _CustomerVisitRequestListPageState
 
     if (res.isNotEmpty) {
       if (res['success'] == true) {
-        //print('succes is true and result is ${res['result']}');
+        //print('success is true and result is ${res['result']}');
         appState.filteredCustomerRequestList = res['result'];
         if(_mounted){
           setState(() {

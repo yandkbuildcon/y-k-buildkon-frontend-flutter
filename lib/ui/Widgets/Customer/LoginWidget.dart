@@ -250,7 +250,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                   Column(
                     children: [
                       const SizedBox(
-                        height: 20,
+                        height: 10,
                       ),
                       Image.asset(
                         'assets/images/ic_launcher.png',
@@ -270,57 +270,30 @@ class _LoginWidgetState extends State<LoginWidget> {
                         ),
                       ),
                       const SizedBox(
-                        height: 16,
+                        height: 25,
                       ),
                        
                        //==============================FORM1 CONTAINER Gen Otp
-                      // Container(
-                      //     padding: const EdgeInsets.symmetric(horizontal: 20),
-                      //     child: Form(
-                      //       key: _formKey1,
-                      //       child: Column(
-                      //         children: [
-                      //           _emailTextField(),
-                      //           TextButton(
-                      //               onPressed: (){
-                      //                 if (_formKey1.currentState!.validate()) {
-                      //                   _generateOtpForCustomer(context, appState);
-                      //                 }
-                      //               },
-                      //               child: Text('Generate Otp',style: TextStyle(color: bluishClr),)
-                      //           )
-                      //         ],
-                      //       ),
-                      //     )
-                      // ),
-                      InkWell(
-                        onTap: ()async{setState(() {
-
-                        });
-
-                        if (_formKey2.currentState!.validate()) {
-                          changeButton=true;
-                          _submitOtpForCustomer(context, appState);
-
-                        }await Future.delayed(Duration(seconds: 1));
-                        },
-                        child: AnimatedContainer(
-                          duration: Duration(seconds: 1),
-                          width:changeButton?50 : 250,
-                          height: 50,
-                          alignment: Alignment.center,
-                          child: changeButton?Icon(Icons.done,color: Colors.white,):Text(
-                            "LOGIN",
-                            style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),
-                          ),
-                          decoration: BoxDecoration(
-                              color: Theme.of(context).primaryColor,
-                              // shape:changeButton?BoxShape.circle:BoxShape.rectangle,
-                              borderRadius: BorderRadius.circular(changeButton?50:8)
-                          ),
-                        ),
+                      Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: Form(
+                            key: _formKey1,
+                            child: Column(
+                              children: [
+                                _emailTextField(),
+                                TextButton(
+                                    onPressed: (){
+                                      if (_formKey1.currentState!.validate()) {
+                                        _generateOtpForCustomer(context, appState);
+                                      }
+                                    },
+                                    child: Text('Generate Otp',style: TextStyle(color: bluishClr),)
+                                )
+                              ],
+                            ),
+                          )
                       ),
-                      const SizedBox(height: 15,),
+                      // const SizedBox(height: 15,),
 
                       const Text('Enter Otp Here', style: TextStyle(fontWeight: FontWeight.w600),),
                       const SizedBox(height: 15,),
@@ -338,17 +311,44 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   style: const TextStyle(fontSize: 24),
                                 ),
                                 const SizedBox(height: 15,),
-                                ElevatedButton(
-                                    onPressed: (){
-                                      if (_formKey2.currentState!.validate()) {
-                                        _submitOtpForCustomer(context, appState);
-                                      }
-                                    },
-                                    style: ElevatedButton.styleFrom(
-                                        backgroundColor: Theme.of(context).primaryColor,
-                                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
+                                // ElevatedButton(
+                                //     onPressed: (){
+                                //       if (_formKey2.currentState!.validate()) {
+                                //         _submitOtpForCustomer(context, appState);
+                                //       }
+                                //     },
+                                //     style: ElevatedButton.styleFrom(
+                                //         backgroundColor: Theme.of(context).primaryColor,
+                                //         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
+                                //     ),
+                                //     child: Text('LOGIN',style: TextStyle(color: Theme.of(context).primaryColorLight, fontWeight: FontWeight.w600),)
+                                // ),
+                                InkWell(
+                                  onTap: ()async{setState(() {
+
+                                  });
+
+                                  if (_formKey2.currentState!.validate()) {
+                                    changeButton=true;
+                                    _submitOtpForCustomer(context, appState);
+
+                                  }await Future.delayed(Duration(seconds: 1));
+                                  },
+                                  child: AnimatedContainer(
+                                    duration: Duration(seconds: 1),
+                                    width:changeButton?50 : 250,
+                                    height: 50,
+                                    alignment: Alignment.center,
+                                    child: changeButton?Icon(Icons.done,color: Colors.white,):Text(
+                                      "LOGIN",
+                                      style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),
                                     ),
-                                    child: Text('LOGIN',style: TextStyle(color: Theme.of(context).primaryColorLight, fontWeight: FontWeight.w600),)
+                                    decoration: BoxDecoration(
+                                        color: Theme.of(context).primaryColor,
+                                        // shape:changeButton?BoxShape.circle:BoxShape.rectangle,
+                                        borderRadius: BorderRadius.circular(changeButton?50:8)
+                                    ),
+                                  ),
                                 ),
                                 const SizedBox(height: 15,),
                                 //================================SIGNUP BTN
