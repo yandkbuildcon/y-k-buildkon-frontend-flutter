@@ -49,7 +49,7 @@ class IntroductionPageOne extends StatelessWidget {
                     ),
                   ),
 
-                  const SizedBox(height: 35,),
+                  const SizedBox(height: 55,),
                   Center(child:  ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Theme.of(context).primaryColor,
@@ -68,20 +68,20 @@ class IntroductionPageOne extends StatelessWidget {
                         ),
                       )
                   ),),
-                  const SizedBox(height: 20,),
-                  Center(child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.black,
-                          fixedSize: Size(MediaQuery.of(context).size.width*0.7, MediaQuery.of(context).size.height*0.076)
-                      ),
-                      onPressed: (){},
-                      child: Text(
-                        'SKIP',
-                        style: TextStyle(
-                            color: Theme.of(context).primaryColorLight
-                        ),
-                      )
-                  ),)
+                  // const SizedBox(height: 20,),
+                  // Center(child: ElevatedButton(
+                  //     style: ElevatedButton.styleFrom(
+                  //         backgroundColor: Colors.black,
+                  //         fixedSize: Size(MediaQuery.of(context).size.width*0.7, MediaQuery.of(context).size.height*0.076)
+                  //     ),
+                  //     onPressed: (){},
+                  //     child: Text(
+                  //       'SKIP',
+                  //       style: TextStyle(
+                  //           color: Theme.of(context).primaryColorLight
+                  //       ),
+                  //     )
+                  // ),)
 
                 ],
               ),

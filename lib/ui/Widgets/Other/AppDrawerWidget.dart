@@ -49,15 +49,15 @@ class AppDrawerWidget extends StatelessWidget {
                   children: [
                     Image.asset(
                       'assets/images/ic_launcher.png',
-                      height: 100,
+                      height: 130,
                     ),
-                    const Text(
-                      'JAY BUILDCON',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 20,
-                      ),
-                    ),
+                    // const Text(
+                    //   'JAY BUILDCON',
+                    //   style: TextStyle(
+                    //     fontWeight: FontWeight.w600,
+                    //     fontSize: 20,
+                    //   ),
+                    // ),
                   ],
                 )
               ),

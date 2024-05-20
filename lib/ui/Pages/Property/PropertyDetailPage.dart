@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:JAY_BUILDCON/controller/MyProvider.dart';
@@ -25,15 +26,15 @@ class _PropertyDetailPageState extends State<PropertyDetailPage> {
 
   bool _mounted = false;
   final _formKey = GlobalKey<FormState>();
-  
+
   //===========================================DATE VARIABLE
   DateTime selectedDate = DateTime.now().add(const Duration(days: 1));
   final DateTime lastSelectableDate =
-      DateTime.now().add(const Duration(days: 365));
+  DateTime.now().add(const Duration(days: 365));
   final DateTime firstSelectableDate =
-      DateTime.now().add(const Duration(days: 1));
-  
-  
+  DateTime.now().add(const Duration(days: 1));
+
+
   final _visitingDateController = TextEditingController();
   final _visitorNameController = TextEditingController();
   final _visitorNumberController = TextEditingController();
@@ -51,7 +52,7 @@ class _PropertyDetailPageState extends State<PropertyDetailPage> {
   List<String> available = ['Sold','Not Available','Available'];
   String selectedAvailability='Sold';
   Color availabilityColor = Colors.orange;
-  
+
   //===========================================RATING VARIABLE
   Map<String,dynamic> selectedProperty = {};
   double propertyRating = 0.0;
@@ -70,7 +71,7 @@ class _PropertyDetailPageState extends State<PropertyDetailPage> {
       ),
     );
     final res =
-        await StaticMethod.requestVisit(appState.token, requestData, url);
+    await StaticMethod.requestVisit(appState.token, requestData, url);
     if (res.isNotEmpty) {
       Navigator.pop(context);
       if (res['success'] == true) {
@@ -145,7 +146,7 @@ class _PropertyDetailPageState extends State<PropertyDetailPage> {
       ),
     );
     final res =
-        await StaticMethod.removeFromFavorite(appState.token, data, url);
+    await StaticMethod.removeFromFavorite(appState.token, data, url);
     if (res.isNotEmpty) {
       Navigator.pop(context);
       if (res['success'] == true) {
@@ -169,7 +170,7 @@ class _PropertyDetailPageState extends State<PropertyDetailPage> {
     };
     var url = Uri.parse(ApiLinks.fetchFavoriteProperty);
     final res =
-        await StaticMethod.fetchFavoriteProperty(appState.token, data, url);
+    await StaticMethod.fetchFavoriteProperty(appState.token, data, url);
     if (res.isNotEmpty) {
       if (res['success'] == true) {
         print(res);
@@ -207,7 +208,7 @@ class _PropertyDetailPageState extends State<PropertyDetailPage> {
     );
 
     final response =
-        await StaticMethod.submitPropertyRating(appState.token, data, url);
+    await StaticMethod.submitPropertyRating(appState.token, data, url);
     Navigator.pop(context);
     if (response.isNotEmpty) {
       if (response['success'] == true) {
@@ -235,130 +236,130 @@ class _PropertyDetailPageState extends State<PropertyDetailPage> {
             StatefulBuilder(builder: (context, setState) {
               return SingleChildScrollView(
                   child: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 15),
-                padding: EdgeInsets.only(
-                    bottom: MediaQuery.of(context).viewInsets.bottom, top: 15),
-                decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20))),
-                child: Column(
-                  children: [
-                    const Text(
-                      'select your rating',
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    //--------------------------------------------RATING CONTAINER
-                    Container(
-                        margin: const EdgeInsets.all(15),
-                        padding:
-                            const EdgeInsets.only(top: 8, left: 16, right: 16),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    rateValue = 1;
-                                  });
-                                  //print(rateValue);
-                                },
-                                icon: rateValue >= 1
-                                    ? const Icon(
-                                        Icons.star,
-                                        color: Colors.green,
-                                      )
-                                    : const Icon(Icons.star_border_outlined)),
-                            IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    rateValue = 2;
-                                  });
-                                  //print(rateValue);
-                                },
-                                icon: rateValue >= 2
-                                    ? const Icon(
-                                        Icons.star,
-                                        color: Colors.green,
-                                      )
-                                    : const Icon(Icons.star_border_outlined)),
-                            IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    rateValue = 3;
-                                  });
-                                  //print(rateValue);
-                                },
-                                icon: rateValue >= 3
-                                    ? const Icon(
-                                        Icons.star,
-                                        color: Colors.green,
-                                      )
-                                    : const Icon(Icons.star_border_outlined)),
-                            IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    rateValue = 4;
-                                  });
-                                  //print(rateValue);
-                                },
-                                icon: rateValue >= 4
-                                    ? const Icon(
-                                        Icons.star,
-                                        color: Colors.green,
-                                      )
-                                    : const Icon(Icons.star_border_outlined)),
-                            IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    rateValue = 5;
-                                  });
-                                  //print(rateValue);
-                                },
-                                icon: rateValue == 5
-                                    ? const Icon(
-                                        Icons.star,
-                                        color: Colors.green,
-                                      )
-                                    : const Icon(Icons.star_border_outlined)),
-                          ],
-                        )),
-                    //---------------------------------------FEEDBACK CONTAINER
-                    Container(
-                      margin: const EdgeInsets.all(15),
-                      child: TextField(
-                        controller: feedbackController,
-                        maxLines: null,
-                        // Allows an unlimited number of lines
-                        decoration: InputDecoration(
-                          labelText: 'Enter your feedback...',
-                          hintText: 'Enter your feedback here...',
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15)),
+                    margin: const EdgeInsets.symmetric(horizontal: 15),
+                    padding: EdgeInsets.only(
+                        bottom: MediaQuery.of(context).viewInsets.bottom, top: 15),
+                    decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20))),
+                    child: Column(
+                      children: [
+                        const Text(
+                          'select your rating',
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold),
                         ),
-                      ),
+                        //--------------------------------------------RATING CONTAINER
+                        Container(
+                            margin: const EdgeInsets.all(15),
+                            padding:
+                            const EdgeInsets.only(top: 8, left: 16, right: 16),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        rateValue = 1;
+                                      });
+                                      //print(rateValue);
+                                    },
+                                    icon: rateValue >= 1
+                                        ? const Icon(
+                                      Icons.star,
+                                      color: Colors.green,
+                                    )
+                                        : const Icon(Icons.star_border_outlined)),
+                                IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        rateValue = 2;
+                                      });
+                                      //print(rateValue);
+                                    },
+                                    icon: rateValue >= 2
+                                        ? const Icon(
+                                      Icons.star,
+                                      color: Colors.green,
+                                    )
+                                        : const Icon(Icons.star_border_outlined)),
+                                IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        rateValue = 3;
+                                      });
+                                      //print(rateValue);
+                                    },
+                                    icon: rateValue >= 3
+                                        ? const Icon(
+                                      Icons.star,
+                                      color: Colors.green,
+                                    )
+                                        : const Icon(Icons.star_border_outlined)),
+                                IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        rateValue = 4;
+                                      });
+                                      //print(rateValue);
+                                    },
+                                    icon: rateValue >= 4
+                                        ? const Icon(
+                                      Icons.star,
+                                      color: Colors.green,
+                                    )
+                                        : const Icon(Icons.star_border_outlined)),
+                                IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        rateValue = 5;
+                                      });
+                                      //print(rateValue);
+                                    },
+                                    icon: rateValue == 5
+                                        ? const Icon(
+                                      Icons.star,
+                                      color: Colors.green,
+                                    )
+                                        : const Icon(Icons.star_border_outlined)),
+                              ],
+                            )),
+                        //---------------------------------------FEEDBACK CONTAINER
+                        Container(
+                          margin: const EdgeInsets.all(15),
+                          child: TextField(
+                            controller: feedbackController,
+                            maxLines: null,
+                            // Allows an unlimited number of lines
+                            decoration: InputDecoration(
+                              labelText: 'Enter your feedback...',
+                              hintText: 'Enter your feedback here...',
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(15)),
+                            ),
+                          ),
+                        ),
+                        //--------------------------------------------------SUBMIT NOW
+                        ElevatedButton(
+                            onPressed: () {
+                              var data = {
+                                "c_id": appState.customerDetails['customer_id'],
+                                "p_id": selectedProperty['property_id'],
+                                "feedback": feedbackController.text,
+                                "rating": rateValue
+                              };
+                              _mounted=true;
+                              submitPropertyRating(data, appState, context);
+                            },
+                            child: const Text('submit'))
+                      ],
                     ),
-                    //--------------------------------------------------SUBMIT NOW
-                    ElevatedButton(
-                        onPressed: () {
-                          var data = {
-                            "c_id": appState.customerDetails['customer_id'],
-                            "p_id": selectedProperty['property_id'],
-                            "feedback": feedbackController.text,
-                            "rating": rateValue
-                          };
-                          _mounted=true;
-                          submitPropertyRating(data, appState, context);
-                        },
-                        child: const Text('submit'))
-                  ],
-                ),
-              ));
+                  ));
             }));
   }
 
@@ -491,7 +492,7 @@ class _PropertyDetailPageState extends State<PropertyDetailPage> {
                               keyboardType: TextInputType.text,
                               decoration: const InputDecoration(
                                   labelText:
-                                      'Employee Reference Number ( optional )',
+                                  'Employee Reference Number ( optional )',
                                   border: OutlineInputBorder()),
                             ),
                           ),
@@ -502,19 +503,19 @@ class _PropertyDetailPageState extends State<PropertyDetailPage> {
                                 horizontal: 15, vertical: 15),
                             child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10)
-                                  ),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10)
+                                    ),
                                     backgroundColor:bluishClr),
                                 onPressed: () {
                                   if (_formKey.currentState!.validate()) {
                                     var visitData = {
                                       "visitor_name":
-                                          _visitorNameController.text,
+                                      _visitorNameController.text,
                                       "visitor_number":
-                                          _visitorNumberController.text,
+                                      _visitorNumberController.text,
                                       "employee_un":
-                                          _employeeRefNoController.text ?? "",
+                                      _employeeRefNoController.text ?? "",
                                       "v_date": _visitingDateController.text,
                                       "c_id": appState
                                           .customerDetails['customer_id'],
@@ -557,7 +558,7 @@ class _PropertyDetailPageState extends State<PropertyDetailPage> {
         }else{
           offer = {};
         }
-         //print(offer);
+        //print(offer);
         if(_mounted){
           setState(() {
             _isOfferLoading=false;
@@ -650,6 +651,35 @@ class _PropertyDetailPageState extends State<PropertyDetailPage> {
     await fetchFavoriteProperty(appState);
   }
 
+  _deleteProperty(data,appState,context)async{
+    _mounted = true;
+    var url = Uri.parse(ApiLinks.deleteProperty);
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (dialogContext) => const Center(
+        child: SpinKitThreeBounce(color: primaryColor,size: 20,),
+      ),
+    );
+    final res =
+    await StaticMethod.deleteProperty(url, data, appState.token);
+    print(res);
+    if (res.isNotEmpty) {
+      Navigator.pop(context);
+      if (res['success'] == true) {
+        StaticMethod.showDialogBar(res['message'], Colors.green);
+        if(_mounted){
+          setState(() {
+            offer = {};
+          });
+        }
+        //_loadOffer(appState);
+      } else {
+        StaticMethod.showDialogBar(res['message'], Colors.red);
+      }
+    }
+  }
+
   @override
   void initState() {
     final appState = Provider.of<MyProvider>(context, listen: false);
@@ -672,16 +702,16 @@ class _PropertyDetailPageState extends State<PropertyDetailPage> {
       availabilityColor=Colors.orange;
     }
     return RefreshIndicator(
-      color: bluishClr,
+        color: bluishClr,
         child: PopScope(
           canPop: false,
           onPopInvoked: (didPop) {
             //selectedProperty={};
             appState.addedToFavorite = false;
             if(controller.appBarContent.value=='Favorite Property Detail'){
-              appState.activeWidget='FavoritePropertyListPage';  
+              appState.activeWidget='FavoritePropertyListPage';
             }else if(controller.appBarContent.value=='Property Details'){
-              appState.activeWidget = "PropertyListPage"; 
+              appState.activeWidget = "PropertyListPage";
             }else if(controller.appBarContent.value=='Your Requested Property'){
               appState.activeWidget = 'VisitRequestedPropertyList';
             }else{
@@ -779,44 +809,53 @@ class _PropertyDetailPageState extends State<PropertyDetailPage> {
   }
   _propertyAvailability(appState,pageContext){
     return Container(
-      margin:const EdgeInsets.symmetric(horizontal: 20),
-      child:Row(
-        children: [
-          Text(
-            '${selectedProperty['property_isAvailable']}',
-            style: TextStyle(
-                color: availabilityColor,
-                fontWeight: FontWeight.bold
+        margin:const EdgeInsets.symmetric(horizontal: 20),
+        child:Row(
+          children: [
+            Text(
+              '${selectedProperty['property_isAvailable']}',
+              style: TextStyle(
+                  color: availabilityColor,
+                  fontWeight: FontWeight.bold
+              ),
             ),
-          ),
-          Spacer(),
-          PopupMenuButton<String>(
-            color: Get.isDarkMode?Colors.white12:Colors.white,
-            onSelected: (String result) {
+            Spacer(),
+            PopupMenuButton<String>(
+              color: Get.isDarkMode?Colors.white12:Colors.white,
+              onSelected: (String result) {
                 selectedOption = result;
-              if(selectedOption=='RequestVisit'){
-                _showVisitDetailContainer(appState, pageContext);
-              }else if(selectedOption=='ContactNow'){
-                Get.to(()=>AdminContactPage());
-              }
-            },
-            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-              PopupMenuItem<String>(
-                value: 'RequestVisit',
-                child: Text('Request Visit'),
-              ),
-              PopupMenuItem<String>(
-                value: 'ContactNow',
-                child: Text('Contact Now'),
-              ),
-              PopupMenuItem<String>(
-                value: 'BookNow',
-                child: Text('Book Now'),
-              ),
-            ],
-          ),
-        ],
-      )
+                if(selectedOption=='RequestVisit'){
+                  _showVisitDetailContainer(appState, pageContext);
+                }else if(selectedOption=='ContactNow'){
+                  Get.to(()=>AdminContactPage());
+                }else if(selectedOption=='DeleteProperty'){
+                  var data = {
+                    "property_id":selectedProperty['property_id']
+                  };
+                  _deleteProperty(data, appState, context);
+                }
+              },
+              itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+                PopupMenuItem<String>(
+                  value: 'RequestVisit',
+                  child: Text('Request Visit'),
+                ),
+                PopupMenuItem<String>(
+                  value: 'ContactNow',
+                  child: Text('Contact Now'),
+                ),
+                PopupMenuItem<String>(
+                  value: 'BookNow',
+                  child: Text('Book Now'),
+                ),
+                appState.userType=='admin' ? PopupMenuItem<String>(
+                  value: 'DeleteProperty',
+                  child: Text('Delete Property'),
+                ) : PopupMenuItem(child: Container())
+              ],
+            ),
+          ],
+        )
     );
   }
   _propertyImageAndEditBtn(appState,fontSizeScaleFactor){
@@ -834,7 +873,7 @@ class _PropertyDetailPageState extends State<PropertyDetailPage> {
                       width: double.infinity,
                       decoration:  BoxDecoration(
                           color: Colors.transparent,
-                        borderRadius: BorderRadius.circular(20)
+                          borderRadius: BorderRadius.circular(20)
                       ),
                       child: ImageSlider(
                         propertyData:
@@ -1316,7 +1355,7 @@ class _PropertyDetailPageState extends State<PropertyDetailPage> {
     );
   }
   _offerContainer(appState,fontSizeScaleFactor){
-    return offer.isNotEmpty 
+    return offer.isNotEmpty
         ?  Container(
         width: MyConst.deviceWidth(context),
         margin: const EdgeInsets.symmetric(horizontal: 15),
@@ -1349,7 +1388,7 @@ class _PropertyDetailPageState extends State<PropertyDetailPage> {
             )
           ],
         )
-    ) 
+    )
         : Container();
   }
   _offerAddRemoveBtn(appState,fontSizeScaleFactor){
@@ -1406,87 +1445,87 @@ class _PropertyDetailPageState extends State<PropertyDetailPage> {
   }
   _changePropertyStatusBtn(appState,fontSizeScaleFactor){
     return appState.userType=='admin' ? Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      margin: const EdgeInsets.symmetric(horizontal: 20),
-      decoration: BoxDecoration(
-          border: Border.all(width: 1,color: Get.isDarkMode?Colors.grey:Colors.black),
-          borderRadius: BorderRadius.circular(10)
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          const Text('Marked As:'),
-          const SizedBox(width: 4,),
-          //==========================================DROPDOWN CARD
-          Card(
-              color: Get.isDarkMode? Colors.white12:Theme.of(context).primaryColorLight,
-              elevation: 1,
-              child: Container(
-                  height: MyConst.deviceWidth(context)*0.1,
-                  margin: const EdgeInsets.symmetric(horizontal: 4),
-                  child: Center(
-                    child: DropdownButton<String>(
-                      value: selectedAvailability,
-                      alignment: Alignment.center,
-                      elevation: 16,
-                      underline: Container(),
-                      onChanged: (String? value) {
-                        // This is called when the user selects an item.
-                        setState(() {
-                          selectedAvailability = value!;
-                          //print('selected property type is ${selectedPropertyType}');
-                        });
-                      },
-                      ////style: TextStyle(overflow: TextOverflow.ellipsis, ),
-                      items: available
-                          .map<DropdownMenuItem<String>>(
-                              (String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text('${value}',
-                                  softWrap: true,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: MyConst.smallTextSize*fontSizeScaleFactor,
-                                      overflow: TextOverflow
-                                          .ellipsis)),
-                            );
-                          }).toList(),
-                    ),
-                  )
-              )
-          ),
-          const SizedBox(width: 4,),
-          //==========================================SUBMIT BUTTON
-          Container(
-            child: TextButton(
-                style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)
-                    ),
-                    backgroundColor: bluishClr
-                ),
-                onPressed: selectedProperty['property_isAvailable']==selectedAvailability
-                    ? null
-                    :  (){
-                  var data = {
-                    "newStatus":selectedAvailability,
-                    "p_id":selectedProperty['property_id']
-                  };
-                  changePropertyAvailability(data, appState, context);
-                },
-                child:Text(
-                  'Submit',
-                  style: TextStyle(
-                      color: Theme.of(context).primaryColorLight,
-                      fontWeight: FontWeight.w600
-                  ),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        margin: const EdgeInsets.symmetric(horizontal: 20),
+        decoration: BoxDecoration(
+            border: Border.all(width: 1,color: Get.isDarkMode?Colors.grey:Colors.black),
+            borderRadius: BorderRadius.circular(10)
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            const Text('Marked As:'),
+            const SizedBox(width: 4,),
+            //==========================================DROPDOWN CARD
+            Card(
+                color: Get.isDarkMode? Colors.white12:Theme.of(context).primaryColorLight,
+                elevation: 1,
+                child: Container(
+                    height: MyConst.deviceWidth(context)*0.1,
+                    margin: const EdgeInsets.symmetric(horizontal: 4),
+                    child: Center(
+                      child: DropdownButton<String>(
+                        value: selectedAvailability,
+                        alignment: Alignment.center,
+                        elevation: 16,
+                        underline: Container(),
+                        onChanged: (String? value) {
+                          // This is called when the user selects an item.
+                          setState(() {
+                            selectedAvailability = value!;
+                            //print('selected property type is ${selectedPropertyType}');
+                          });
+                        },
+                        ////style: TextStyle(overflow: TextOverflow.ellipsis, ),
+                        items: available
+                            .map<DropdownMenuItem<String>>(
+                                (String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text('${value}',
+                                    softWrap: true,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: MyConst.smallTextSize*fontSizeScaleFactor,
+                                        overflow: TextOverflow
+                                            .ellipsis)),
+                              );
+                            }).toList(),
+                      ),
+                    )
                 )
             ),
-          )
-        ],
-      )
-        
+            const SizedBox(width: 4,),
+            //==========================================SUBMIT BUTTON
+            Container(
+              child: TextButton(
+                  style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                      backgroundColor: bluishClr
+                  ),
+                  onPressed: selectedProperty['property_isAvailable']==selectedAvailability
+                      ? null
+                      :  (){
+                    var data = {
+                      "newStatus":selectedAvailability,
+                      "p_id":selectedProperty['property_id']
+                    };
+                    changePropertyAvailability(data, appState, context);
+                  },
+                  child:Text(
+                    'Submit',
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColorLight,
+                        fontWeight: FontWeight.w600
+                    ),
+                  )
+              ),
+            )
+          ],
+        )
+
     ) : Container();
   }
   _progresContainer(){

@@ -226,7 +226,7 @@ class _EmiCalculatorWidgetState extends State<EmiCalculatorWidget> {
     required FocusNode? focusNode,
     required String? label,
     required TextInputType inputType,
-    validator
+    required String? Function(String?)? validator,
 }){
     return  Container(
       width: MyConst.deviceWidth(context)*0.9,
@@ -252,12 +252,7 @@ class _EmiCalculatorWidgetState extends State<EmiCalculatorWidget> {
               borderRadius: BorderRadius.all(Radius.circular(10),),
             )
         ),
-        validator: (value){
-          if(value!.isEmpty || !value.contains("@gmail.com")){
-            return "please enter valid email";
-          }
-          return null;
-        },
+        validator:validator,
       ),
     );
   }

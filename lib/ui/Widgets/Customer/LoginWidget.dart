@@ -250,7 +250,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                   Column(
                     children: [
                       const SizedBox(
-                        height: 10,
+                        height: 5,
                       ),
                       Image.asset(
                         'assets/images/ic_launcher.png',
