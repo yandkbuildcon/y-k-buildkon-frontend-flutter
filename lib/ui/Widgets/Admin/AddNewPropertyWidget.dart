@@ -105,6 +105,54 @@ class _AddNewPropertyWidgetState extends State<AddNewPropertyWidget> {
   final FocusNode _propertyPincodeFocusNode = FocusNode();
   final FocusNode _propertyLocationUrlFocusNode = FocusNode();
 
+  // _submitData(appState, context) async {
+  //   var propertyData = {
+  //     "property_name": _propertyNameController.text,
+  //     "property_un": _propertyUnController.text,
+  //     "property_area": _propertyAreaController.text,
+  //     "property_areaUnit": areaUnit,
+  //     "property_price": _propertyPriceController.text,
+  //     "property_bookAmount": _propertyBookingAmountController.text,
+  //     "property_type": selectedPropertyType,
+  //     "property_bhk": selectedBhk,
+  //     "property_floor": selectedFloor,
+  //     "property_isGarden": selectedGarden,
+  //     "property_isParking": selectedParking,
+  //     "property_isFurnished": selectedFurnished,
+  //     "property_isAvailable": selectedAvailability,
+  //     "property_desc": _propertyDescriptionController.text,
+  //     "property_address": _propertyAddressController.text,
+  //     "property_locality": _propertyLocalityController.text,
+  //     "property_city": _propertyCityController.text,
+  //     "property_pincode": _propertyPincodeController.text,
+  //     "property_locationUrl": _propertyLocationUrlController.text,
+  //     "property_rating":0,
+  //     "property_ratingCount":0,
+  //     "project_id":selectedId
+  //   };
+  //   var url = Uri.parse(ApiLinks.insertPropertyDetails);
+  //   showDialog(
+  //     context: context,
+  //     barrierDismissible: false,
+  //     builder: (dialogContext) => const Center(
+  //       child: CircularProgressIndicator(),
+  //     ),
+  //   );
+  //   final res = await StaticMethod.insertProperty(appState.token, propertyData, url);
+  //   if (res.isNotEmpty) {
+  //     print(res);
+  //     Navigator.pop(context);
+  //     if (res['success'] == true) {
+  //       StaticMethod.showDialogBar(res['message'], Colors.green);
+  //       appState.activeWidget = "PropertyListPage";
+  //       appState.currentState = 0;
+  //     } else {
+  //       StaticMethod.showDialogBar(res['message'], Colors.red);
+  //     }
+  //   }
+  //     print(propertyData);
+  // }
+
   _submitData(appState, context) async {
     var propertyData = {
       "property_name": _propertyNameController.text,
@@ -140,7 +188,7 @@ class _AddNewPropertyWidgetState extends State<AddNewPropertyWidget> {
     );
     final res = await StaticMethod.insertProperty(appState.token, propertyData, url);
     if (res.isNotEmpty) {
-      // print(res);
+      print(res);
       Navigator.pop(context);
       if (res['success'] == true) {
         StaticMethod.showDialogBar(res['message'], Colors.green);
@@ -150,7 +198,6 @@ class _AddNewPropertyWidgetState extends State<AddNewPropertyWidget> {
         StaticMethod.showDialogBar(res['message'], Colors.red);
       }
     }
-      // print(propertyData);
   }
 
   @override
